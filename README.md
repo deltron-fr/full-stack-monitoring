@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Full-Stack FastAPI and React Template - DevOps November CV Challenge
 
 Welcome to the **Full-Stack FastAPI and React Template** repository! This project serves as a demo application for the **DevOps November Resume Challenge**, where participants will deploy a full-stack application with a **FastAPI** backend and **ReactJS** frontend using **ChakraUI**. Additionally, participants will set up monitoring and logging tools, configure a reverse proxy, and deploy the application to a cloud platform, showcasing their end-to-end DevOps skills.
@@ -159,3 +160,7 @@ Your hosted application will be evaluated based on the following criteria:
 
 
 Good luck with this Challenge! This is your opportunity to showcase your end-to-end DevOps skills and stand out to potential employers.
+=======
+# full-stack-monitoring
+Full-stack  Deployment with Monitoring and Logging using Docker Compose
+>>>>>>> 3655f86c98a960feab5640b1b96574bc28a847f9
