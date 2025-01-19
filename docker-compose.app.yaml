@@ -64,7 +64,7 @@ services:
   
   nginx:
     image: jc21/nginx-proxy-manager:latest
-    container_name: nging-proxy-manager
+    container_name: nginx-proxy-manager
     restart: unless-stopped
     ports:
       - "80:80"
