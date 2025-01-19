@@ -61,9 +61,34 @@ services:
     networks:
       - frontend_network
       - backend_network
+  
+  nginx:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nging-proxy-manager
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+    volumes:
+      - data:/data
+      - letsencrypt:/etc/letsencrypt
+    depends_on:
+      - frontend
+      - backend
+      - cadvisor
+      - adminer
+      - prometheus
+      - grafana
+    networks:
+      - monitoring_network
+      - frontend_network
+      - backend_network
 
 volumes:
   postgres_vol:
+  data:
+  letsencrypt:
 
 networks:
   frontend_network:
