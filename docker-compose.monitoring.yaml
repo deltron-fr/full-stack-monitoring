@@ -22,10 +22,13 @@ services:
     restart: unless-stopped
     environment:
       - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=%(protocol)s://deltronfr.mooo.com/grafana/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
     ports:
       - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana.ini:/etc/grafana/grafana.ini
     depends_on:
       - loki
       - prometheus
@@ -58,11 +61,11 @@ services:
     image: grafana/loki:latest
     container_name: loki
     restart: unless-stopped
-    user: "10001"
     ports:
-      - "3101:3100"
+      - "3100:3100"
     volumes:
       - ./monitoring/loki-config.yaml:/etc/loki/loki-config.yaml
+      - loki-data:/data/loki
     command: --config.file=/etc/loki/loki-config.yaml
     networks:
       - backend_network
@@ -84,4 +87,5 @@ services:
 volumes:
   prom_data:
   grafana-data:
+  loki-data:
 
