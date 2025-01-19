@@ -4,12 +4,12 @@ scrape_configs:
   - job_name: prometheus
     metrics_path: /metrics
     static_configs:
-      - targets: ['prometheus:9090']
+      - targets: ['deltronfr.mooo.com:9090']
         labels:
           service: prometheus
   
   - job_name: cadvisor
     static_configs:
-      - targets: ['cadvisor:8100']
+      - targets: ['deltronfr.mooo.com::8100']
         labels:
           service: cadvisor
