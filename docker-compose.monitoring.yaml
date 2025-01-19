@@ -23,7 +23,7 @@ services:
     restart: unless-stopped
     environment:
       - GF_USERS_ALLOW_SIGN_UP=false
-      - GF_SERVER_ROOT_URL=http://localhost:3000/grafana
+      - GF_SERVER_ROOT_URL=%(protocol)://deltronfr.mooo.com/grafana/
       - GF_SERVER_SERVE_FROM_SUB_PATH=true
     ports:
       - "3000:3000"
