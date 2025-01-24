@@ -10,7 +10,7 @@ services:
       - ./monitoring/prometheus.yaml:/etc/prometheus/prometheus.yaml
       - prom_data:/prometheus
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--config.file=/etc/prometheus/prometheus.yaml'
       - '--web.external-url=/prometheus'
     networks:
       - frontend_network
