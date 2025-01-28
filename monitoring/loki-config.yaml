@@ -2,6 +2,7 @@ auth_enabled: false
 
 server:
   http_listen_port: 3100
+  grpc_listen_port: 9096
 
 common:
   instance_addr: 127.0.0.1
@@ -16,18 +17,17 @@ common:
       store: inmemory
     replication_factor: 1
 
-ingester:
-  lifecycler:
-    ring:
-      kvstore:
-        store: inmemory
-  chunk_idle_period: 5m
-  chunk_retain_period: 30s
+query_range:
+  results_cache:
+    cache:
+      embedded_cache:
+        enabled: true
+        max_size_mb: 100
 
 
 schema_config:
   configs:
-    - from: 2024-04-01
+    - from: 2020-10-24
       store: tsdb
       object_store: filesystem
       schema: v13
