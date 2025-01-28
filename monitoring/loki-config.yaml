@@ -2,7 +2,7 @@ auth_enabled: false
 
 server:
   http_listen_port: 3100
-  
+
 common:
   instance_addr: 127.0.0.1
   path_prefix: /data/loki
@@ -22,7 +22,6 @@ ingester:
         store: inmemory
   chunk_idle_period: 5m
   chunk_retain_period: 30s
-  max_transfer_retries: 0
 
 
 schema_config:
