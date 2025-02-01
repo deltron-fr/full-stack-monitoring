@@ -2,7 +2,7 @@ auth_enabled: false
 
 server:
   http_listen_port: 3100
-  grpc_listen_port: 9096
+  grpc_listen_port: 9095
 
 common:
   instance_addr: 127.0.0.1
@@ -15,19 +15,11 @@ common:
   ring:
     kvstore:
       store: inmemory
-    replication_factor: 1
-
-query_range:
-  results_cache:
-    cache:
-      embedded_cache:
-        enabled: true
-        max_size_mb: 100
 
 
 schema_config:
   configs:
-    - from: 2020-10-24
+    - from: 2024-04-01
       store: tsdb
       object_store: filesystem
       schema: v13
