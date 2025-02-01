@@ -41,18 +41,15 @@ services:
       - monitoring_network
 
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:v0.47.0
+    image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
     ports:
       - "8100:8080"
     volumes:
-      - "/:/rootfs:ro"
-      - "/var/run:/var/run:ro"
-      - "/sys:/sys:ro"
-      - "/var/lib/docker/:/var/lib/docker"
-      - "/etc/machine-id:/etc/machine-id:ro"
-    devices:
-      - "/dev/kmsg:/dev/kmsg:ro"
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
     networks:
       - backend_network
       - frontend_network
