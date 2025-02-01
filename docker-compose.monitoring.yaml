@@ -86,6 +86,8 @@ services:
     volumes:
       - /var/log:/var/log                  
       - ./monitoring/promtail-config.yaml:/etc/promtail/promtail-config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
     restart: unless-stopped
     command: --config.file=/etc/promtail/promtail-config.yaml
     depends_on:
