@@ -133,22 +133,22 @@ Configuration files are in the `monitoring/` directory.
 
 3. **Choose your deployment environment**
 
-You can deploy the stack either **locally** or on a **cloud VM** (recommended for production). Depending on your choice, environment-specific configuration changes are required:
+    You can deploy the stack either **locally** or on a **cloud VM** (recommended for production). Depending on your choice, environment-specific configuration changes are required:
 
-##### • Local deployment (for testing/development):
+#### • Local deployment (for testing/development):
 
 - Use the `.env` files as provided, or simply:
-  - Remove any **Grafana subpath** settings from your `.env` files  
+- Remove any **Grafana subpath** settings from your `.env` files  
     (e.g. `GF_SERVER_SERVE_FROM_SUB_PATH`).
-  - If Prometheus isnt configured behind a reverse proxy, consider removing or adjusting the `web.external-url` setting in its config.  
+- If Prometheus isnt configured behind a reverse proxy, consider removing or adjusting the `web.external-url` setting in its config.  
     > _Note: This is optional unless Prometheus is failing to serve correctly due to the proxy settings._
 
-##### • Cloud VM deployment (with a registered domain):
+#### • Cloud VM deployment (with a registered domain):
 
 - This is required for production and public access.
 - In all `.env` files, update references of `localhost`, `backend`, `frontend`, etc., to match your **registered domain** (e.g. `https://yourdomain.com`).
-  - This ensures correct CORS, proxy routing, and dashboard URLs.
-  - Examples of fields that need updating:
+- This ensures correct CORS, proxy routing, and dashboard URLs.
+- Examples of fields that need updating:
     - `BACKEND_CORS_ORIGINS`
     - `VITE_API_URL`
     - `GF_SERVER_ROOT_URL`
@@ -163,10 +163,11 @@ You can deploy the stack either **locally** or on a **cloud VM** (recommended fo
     password: changeme
     ```
 
-_You can use Nginx Proxy Manager (NPM) to easily set up SSL certificates for your domain and subdomains. Alternatively, you can use your own custom Nginx configuration (an example config is provided), which also includes routing non-www requests to their www equivalent. But you would have to get the necessary certificates from letsencrypt._
+    _You can use Nginx Proxy Manager (NPM) to easily set up SSL certificates for your domain and subdomains. Alternatively, you can use your own custom Nginx configuration (an example config is provided), which also includes routing non-www requests to their www equivalent. But you would have to get the necessary certificates from letsencrypt._
+
 ![npm](./assets/npm.png)
 
-#### Using the config file
+### Using the config file
 - uncomment `#- ./nginx/nginx.conf:/data/nginx/custom/http_top.conf` in the compose.yml file. This maps nginx.conf file on NPM.
 - restart the application
     ```
