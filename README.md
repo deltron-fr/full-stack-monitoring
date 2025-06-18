@@ -125,7 +125,6 @@ Configuration files are in the `monitoring/` directory.
 
 ## How to Deploy
 
-This should 
 1. **Clone the repository and navigate to the root directory.**
 
 2. **Set up environment files:**
