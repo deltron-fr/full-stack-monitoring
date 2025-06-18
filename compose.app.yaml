@@ -1,5 +1,5 @@
 include:
-  - docker-compose.monitoring.yaml
+  - compose.monitoring.yaml
 
 services:
   db:
@@ -7,15 +7,15 @@ services:
     restart: always
     container_name: postgres
     environment:
-      POSTGRES_PASSWORD: /run/secrets/postgres_password
-      POSTGRES_USER: deltron
-      POSTGRES_DB: deltron
+      POSTGRES_PASSWORD: password123
+      POSTGRES_USER: merlin
+      POSTGRES_DB: nov_challenge
     volumes:
       - postgres_vol:/var/lib/postgresql/data
     expose:
       - "5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U deltron -d deltron"]
+      test: ["CMD-SHELL", "pg_isready -U merlin -d nov_challenge"]
       interval: 10s
       retries: 15
     networks:
@@ -59,6 +59,7 @@ services:
     env_file:
       - ./frontend/.env
     depends_on:
+      - db
       - backend
     networks:
       - frontend_network
@@ -75,7 +76,9 @@ services:
     volumes:
       - data:/data
       - letsencrypt:/etc/letsencrypt
+      #- ./nginx/nginx.conf:/data/nginx/custom/http_top.conf
     depends_on:
+      - db
       - frontend
       - backend
       - cadvisor
@@ -95,6 +98,7 @@ volumes:
 secrets:
   postgres_password:
     file: password.txt
+
 networks:
   frontend_network:
   backend_network:
