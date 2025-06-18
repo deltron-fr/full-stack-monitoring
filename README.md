@@ -186,8 +186,16 @@ _You can use Nginx Proxy Manager (NPM) to easily set up SSL certificates for you
 | Grafana                | https://deltronfr.com/grafana   | Use the login in the `.env` file              |
 | Prometheus             | https://deltronfr.com/prometheus  | Metrics explorer                           |
 
-<img src=".assets/admine.png" width="45%"></img> <img src=".assets/docs.png" width="45%"></img> 
-<img src=".assets/frontend.png" width="45%"></img> <img src=".assets/npm.png" width="45%"></img> 
+<table>
+  <tr>
+    <td><img src="./assets/adminer.png" width="200"/></td>
+    <td><img src="./assets/docs.png" width="200"/></td>
+  </tr>
+  <tr>
+    <td><img src="./assets/frontend.png" width="200"/></td>
+    <td><img src="./assets/npm.png" width="200"/></td>
+  </tr>
+</table>
 
 ## Monitoring and Logging
 - After all applications are successfully accessible through the custom domain, grafana is then configured for visualizations of metric and logs.
